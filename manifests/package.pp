@@ -15,11 +15,9 @@
 # @example Include this class to ensure its resources are available.
 #   include logstash::package
 #
-# @author https://github.com/elastic/puppet-logstash/graphs/contributors
-#
 class logstash::package(
-  $package_url = $logstash::package_url,
-  $version = $logstash::version,
+  $package_url  = $logstash::package_url,
+  $version      = $logstash::version,
   $package_name = $logstash::package_name,
 )
 {

@@ -3,10 +3,8 @@
 # @example Include this class to ensure its resources are available.
 #   include logstash::config
 #
-# @author https://github.com/elastic/puppet-logstash/graphs/contributors
-#
 class logstash::config {
-  require logstash::package
+  require ::logstash::package
 
   File {
     owner => 'root',

@@ -39,16 +39,14 @@
 #     path    => '/usr/local/etc/logstash/pipeline-2/heartbeat.conf'
 #   }
 #
-# @author https://github.com/elastic/puppet-logstash/graphs/contributors
-#
 define logstash::configfile(
-  $content = undef,
-  $source = undef,
+  $content  = undef,
+  $source   = undef,
   $template = undef,
-  $path = undef,
+  $path     = undef,
 )
 {
-  include logstash
+  include ::logstash
 
   $owner = 'root'
   $group = $logstash::logstash_group

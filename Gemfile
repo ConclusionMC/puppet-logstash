@@ -1,48 +1,45 @@
-source 'https://rubygems.org'
-ruby '2.3.4'
+source "https://rubygems.org"
 
-puppetversion = ENV['PUPPET_VERSION'] || '4.10.7'
-gem 'puppet', puppetversion, :require => false
+group :test do
+  gem 'json_pure', '<= 2.0.1' if RUBY_VERSION < '2.0.0'
+  gem 'jsonlint'
 
-gem 'beaker', '3.15.0'
-gem 'beaker-pe', '1.13.0'
-gem 'beaker-rspec', '6.1.0'
+  gem 'metadata-json-lint'
 
-# REF: https://github.com/voxpupuli/metadata-json-lint/issues/10
-# gem 'metadata-json-lint'
+  gem 'openssl'
 
-gem 'rspec-puppet'
+  gem 'puppet', '~> 4.10.0'
+  gem 'puppet-lint'
+  gem 'puppet-lint-absolute_classname-check'
+  gem 'puppet-lint-classes_and_types_beginning_with_digits-check'
+  gem 'puppet-lint-leading_zero-check'
+  gem 'puppet-lint-resource_reference_syntax'
+  gem 'puppet-lint-trailing_comma-check'
+  gem 'puppet-lint-unquoted_string-check'
+  gem 'puppet-lint-version_comparison-check'
+  gem 'puppet-syntax'
 
-gem 'pry'
-gem 'pry-rescue'
-gem 'docker-api', '~> 1.0'
-gem 'rubysl-securerandom'
-gem 'ci_reporter_rspec'
-gem 'google-api-client', '0.9.4' # 0.9.5 needs Ruby 2.
-gem 'rgen'
-gem 'rspec', '~> 3.0'
-gem 'rake'
-gem 'metadata-json-lint'
-gem 'puppet-doc-lint'
-gem 'puppet-lint'
-gem 'puppet-strings'
-gem 'puppetlabs_spec_helper'
-gem 'puppet-syntax'
-gem 'rspec-puppet-facts'
-gem 'rubocop'
-gem 'semantic_puppet'
-gem 'serverspec', '2.38.0'
-gem 'specinfra', '2.67.3'
-gem 'syck'
-gem 'webmock'
-gem 'redcarpet'
+  gem 'puppetlabs_spec_helper'
 
-# Extra Puppet-lint gems
-# gem 'puppet-lint-appends-check', :require => false
-gem 'puppet-lint-version_comparison-check', :require => false
-gem 'puppet-lint-unquoted_string-check', :require => false
-gem 'puppet-lint-undef_in_function-check', :require => false
-gem 'puppet-lint-trailing_comma-check', :require => false
-gem 'puppet-lint-leading_zero-check', :require => false
-gem 'puppet-lint-file_ensure-check', :require => false
-gem 'puppet-lint-empty_string-check', :require => false
+  gem 'rake'
+  gem 'rspec'
+  gem 'rspec-puppet'
+  gem 'rspec-puppet-facts'
+  gem 'rubocop', '0.54.0'
+
+  gem 'semantic_puppet'
+  gem 'simplecov', '0.17.1'
+  gem 'simplecov-console'
+end
+
+group :development do
+  gem 'git'
+
+  gem 'puppet-blacksmith', '4.1.2'
+  gem 'puppet-strings'
+
+  gem 'redcarpet'
+end
+
+group :system_tests do
+end
