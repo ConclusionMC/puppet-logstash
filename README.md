@@ -1,8 +1,6 @@
-# elastic/logstash
+# cmc/logstash (forked from https://github.com/elastic/puppet-logstash)
 
 A Puppet module for managing and configuring [Logstash](http://logstash.net/).
-
-[![Build Status](https://travis-ci.org/elastic/puppet-logstash.png?branch=master)](https://travis-ci.org/elastic/puppet-logstash)
 
 ## Logstash Versions
 

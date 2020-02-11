@@ -17,13 +17,11 @@
 #     filename => 'custom-pattern-name'
 #   }
 #
-# @author https://github.com/elastic/puppet-logstash/graphs/contributors
-#
 define logstash::patternfile (
   Pattern[/^(puppet|file):\/\//] $source   = undef,
   Optional[String[1]]            $filename = undef,
 ) {
-  require logstash::config
+  require ::logstash::config
 
   $destination = pick($filename, basename($source))
 

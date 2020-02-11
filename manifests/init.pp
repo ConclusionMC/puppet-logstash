@@ -132,27 +132,25 @@
 #     ]
 #   }
 #
-# @author https://github.com/elastic/puppet-logstash/graphs/contributors
-#
 class logstash(
-  $ensure            = 'present',
-  $status            = 'enabled',
+  $ensure                    = 'present',
+  $status                    = 'enabled',
   Boolean $restart_on_change = true,
-  Boolean $auto_upgrade       = false,
-  $version           = undef,
-  $package_url       = undef,
-  $package_name      = 'logstash',
+  Boolean $auto_upgrade      = false,
+  $version                   = undef,
+  $package_url               = undef,
+  $package_name              = 'logstash',
   Integer $download_timeout  = 600,
-  $logstash_user     = 'logstash',
-  $logstash_group    = 'logstash',
-  $config_dir         = '/etc/logstash',
-  Boolean $purge_config = true,
-  $service_provider  = undef,
-  $settings          = {},
-  $startup_options   = {},
-  $jvm_options       = [],
-  Array $pipelines   = [],
-  Boolean $manage_repo   = true,
+  $logstash_user             = 'logstash',
+  $logstash_group            = 'logstash',
+  $config_dir                = '/etc/logstash',
+  Boolean $purge_config      = true,
+  $service_provider          = undef,
+  $settings                  = {},
+  $startup_options           = {},
+  $jvm_options               = [],
+  Array $pipelines           = [],
+  Boolean $manage_repo       = true,
 )
 {
   $home_dir = '/usr/share/logstash'
@@ -166,9 +164,9 @@ class logstash(
   }
 
   if ($manage_repo == true) {
-    include elastic_stack::repo
+    include ::elastic_stack::repo
   }
-  include logstash::package
-  include logstash::config
-  include logstash::service
+  include ::logstash::package
+  include ::logstash::config
+  include ::logstash::service
 }

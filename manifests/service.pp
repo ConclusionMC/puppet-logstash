@@ -6,8 +6,6 @@
 # @example Include this class to ensure its resources are available.
 #   include logstash::service
 #
-# @author https://github.com/elastic/puppet-logstash/graphs/contributors
-#
 class logstash::service {
   $default_settings = {
     'path.data'   => '/var/lib/logstash',

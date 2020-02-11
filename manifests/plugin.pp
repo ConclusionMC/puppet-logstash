@@ -38,12 +38,12 @@
 # @param environment [String] Environment used when running 'logstash-plugin'
 #
 define logstash::plugin (
-  $source = undef,
-  $ensure = present,
+  $source      = undef,
+  $ensure      = present,
   $environment = [],
 )
 {
-  require logstash::package
+  require ::logstash::package
   $exe = "${logstash::home_dir}/bin/logstash-plugin"
 
   Exec {
